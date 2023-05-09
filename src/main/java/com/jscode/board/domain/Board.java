@@ -25,4 +25,12 @@ public class Board {
                 .content(content)
                 .build();
     }
+
+    public void updateTitle(String title){
+        this.title = title;
+    }
+
+    public void updateContent(String content){
+        this.content = content;
+    }
 }
