@@ -4,6 +4,7 @@ import com.jscode.board.dto.request.BoardRequest;
 import com.jscode.board.dto.response.BoardResponse;
 import com.jscode.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ public class BoardController {
 
     private final BoardService boardService;
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public ResponseEntity<BoardResponse> boardAdd(@RequestBody BoardRequest request){
         BoardResponse response = boardService.saveBoard(request);
@@ -26,6 +28,12 @@ public class BoardController {
     @GetMapping
     public ResponseEntity<List<BoardResponse>> boardList(){
         List<BoardResponse> response = boardService.findBoards();
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping(params = "keyword")
+    public ResponseEntity<List<BoardResponse>> boardListByKeyword(@RequestParam String keyword){
+        List<BoardResponse> response = boardService.findBoardByKeyword(keyword);
         return ResponseEntity.ok(response);
     }
 
