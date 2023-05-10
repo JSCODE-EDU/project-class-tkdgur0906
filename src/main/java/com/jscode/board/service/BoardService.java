@@ -25,7 +25,7 @@ public class BoardService {
     }
 
     public List<BoardResponse> findBoards() {
-        return boardRepository.findAll()
+        return boardRepository.findTop100ByOrderByCreatedDateDesc()
                 .stream().map(m -> BoardResponse.from(m))
                 .collect(Collectors.toList());
     }
