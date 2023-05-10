@@ -2,10 +2,7 @@ package com.jscode.board.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -14,16 +11,15 @@ public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "board_id")
     private Long id;
     private String title;
     private String content;
 
     @Builder
-    public static Board createBoard(String title, String content){
-        return Board.builder()
-                .title(title)
-                .content(content)
-                .build();
+    public Board(String title, String content){
+        this.title = title;
+        this.content = content;
     }
 
     public void updateTitle(String title){

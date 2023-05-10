@@ -15,11 +15,14 @@ public class BoardResponse {
     private String content;
 
     public static Board toEntity(BoardRequest boardRequest) {
-        return Board.createBoard(boardRequest.getTitle(), boardRequest.getContent());
+        return Board.builder()
+                .title(boardRequest.getTitle())
+                .content(boardRequest.getContent()).build();
     }
 
     public static BoardResponse from(Board board) {
         return BoardResponse.builder()
+                .id(board.getId())
                 .title(board.getTitle())
                 .content(board.getContent())
                 .build();
