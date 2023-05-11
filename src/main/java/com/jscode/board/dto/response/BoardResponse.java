@@ -18,11 +18,7 @@ public class BoardResponse {
     private String content;
     private LocalDateTime createdDate;
 
-    public static Board toEntity(BoardRequest boardRequest) {
-        return Board.builder()
-                .title(boardRequest.getTitle())
-                .content(boardRequest.getContent()).build();
-    }
+
 
     public static BoardResponse from(Board board) {
         return BoardResponse.builder()

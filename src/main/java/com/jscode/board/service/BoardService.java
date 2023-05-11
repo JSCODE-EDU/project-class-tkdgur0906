@@ -23,7 +23,7 @@ public class BoardService {
      * 게시글 생성
      */
     public BoardResponse saveBoard(BoardRequest request) {
-        Board savedBoard = boardRepository.save(BoardResponse.toEntity(request));
+        Board savedBoard = boardRepository.save(BoardRequest.toEntity(request));
         return BoardResponse.from(savedBoard);
     }
 
