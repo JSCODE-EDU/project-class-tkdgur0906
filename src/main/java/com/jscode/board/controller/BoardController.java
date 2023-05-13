@@ -19,11 +19,10 @@ public class BoardController {
 
     private final BoardService boardService;
 
-    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public ResponseEntity<BoardResponse> boardAdd(@Valid @RequestBody BoardRequest request){
         BoardResponse response = boardService.saveBoard(request);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @GetMapping
