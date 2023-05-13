@@ -17,8 +17,8 @@ public class BusinessException extends RuntimeException {
         this.errorCode = errorCode;
     }
 
-    public String getStatus(){
-        return String.valueOf(errorCode.getStatus());
+    public int getStatus(){
+        return errorCode.getStatus();
     }
 
     public HttpStatus getHttpStatus(){
