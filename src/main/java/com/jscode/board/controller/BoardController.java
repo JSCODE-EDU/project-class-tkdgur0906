@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class BoardController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public ResponseEntity<BoardResponse> boardAdd(@RequestBody BoardRequest request){
+    public ResponseEntity<BoardResponse> boardAdd(@Valid @RequestBody BoardRequest request){
         BoardResponse response = boardService.saveBoard(request);
         return ResponseEntity.ok(response);
     }
