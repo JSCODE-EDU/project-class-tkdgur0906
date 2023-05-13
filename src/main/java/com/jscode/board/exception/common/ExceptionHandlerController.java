@@ -1,7 +1,10 @@
 package com.jscode.board.exception.common;
 
-import com.jscode.board.exception.common.response.ExceptionResponse;
+import com.jscode.board.exception.common.response.BusinessExceptionResponse;
+import com.jscode.board.exception.common.response.FieldExceptionResponse;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -9,8 +12,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ExceptionHandlerController {
 
     @ExceptionHandler(BusinessException.class)
-    private ResponseEntity<ExceptionResponse> handleBusinessException(BusinessException exception){
-        ExceptionResponse response = ExceptionResponse.from(exception);
-        return new ResponseEntity<>(response, exception.getHttpStatus());
+    public ResponseEntity<BusinessExceptionResponse> handleBusinessException(BusinessException ex){
+        BusinessExceptionResponse response = BusinessExceptionResponse.from(ex);
+        return new ResponseEntity<>(response, ex.getHttpStatus());
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<FieldExceptionResponse> handleValidationException(MethodArgumentNotValidException ex){
+        FieldExceptionResponse response = FieldExceptionResponse.from(ErrorCode.INVALID_INPUT_EXCEPTION, ex);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }
