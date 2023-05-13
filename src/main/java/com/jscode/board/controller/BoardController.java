@@ -7,11 +7,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
+@Validated
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/boards")
@@ -32,7 +35,7 @@ public class BoardController {
     }
 
     @GetMapping(params = "keyword")
-    public ResponseEntity<List<BoardResponse>> boardListByKeyword(@RequestParam String keyword){
+    public ResponseEntity<List<BoardResponse>> boardListByKeyword(@NotBlank @RequestParam String keyword){
         List<BoardResponse> response = boardService.findBoardByKeyword(keyword);
         return ResponseEntity.ok(response);
     }
