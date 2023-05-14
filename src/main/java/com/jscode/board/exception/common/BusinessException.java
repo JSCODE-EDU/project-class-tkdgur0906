@@ -1,6 +1,6 @@
 package com.jscode.board.exception.common;
 
-import lombok.Getter;
+import com.jscode.board.exception.code.ErrorCode;
 import org.springframework.http.HttpStatus;
 
 public class BusinessException extends RuntimeException {

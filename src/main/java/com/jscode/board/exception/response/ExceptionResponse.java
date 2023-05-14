@@ -1,12 +1,10 @@
-package com.jscode.board.exception.common.response;
+package com.jscode.board.exception.response;
 
-import com.jscode.board.exception.common.ErrorCode;
+import com.jscode.board.exception.code.ErrorCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import javax.validation.ConstraintViolationException;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Getter
 @RequiredArgsConstructor

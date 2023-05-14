@@ -1,4 +1,4 @@
-package com.jscode.board.exception.common.response;
+package com.jscode.board.exception.response;
 
 import com.jscode.board.exception.common.BusinessException;
 import lombok.Getter;

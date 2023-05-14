@@ -1,8 +1,9 @@
 package com.jscode.board.exception.common;
 
-import com.jscode.board.exception.common.response.BusinessExceptionResponse;
-import com.jscode.board.exception.common.response.ExceptionResponse;
-import com.jscode.board.exception.common.response.FieldExceptionResponse;
+import com.jscode.board.exception.response.BusinessExceptionResponse;
+import com.jscode.board.exception.response.ExceptionResponse;
+import com.jscode.board.exception.response.FieldExceptionResponse;
+import com.jscode.board.exception.code.ErrorCode;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -10,8 +11,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.validation.ConstraintViolationException;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class ExceptionHandlerController {

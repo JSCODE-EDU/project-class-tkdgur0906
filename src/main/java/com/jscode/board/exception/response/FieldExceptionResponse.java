@@ -1,6 +1,6 @@
-package com.jscode.board.exception.common.response;
+package com.jscode.board.exception.response;
 
-import com.jscode.board.exception.common.ErrorCode;
+import com.jscode.board.exception.code.ErrorCode;
 import com.jscode.board.exception.common.FieldException;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

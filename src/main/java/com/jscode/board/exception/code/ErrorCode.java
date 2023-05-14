@@ -1,4 +1,4 @@
-package com.jscode.board.exception.common;
+package com.jscode.board.exception.code;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
 package com.jscode.board.exception.board;
 
 import com.jscode.board.exception.common.BusinessException;
-import com.jscode.board.exception.common.ErrorCode;
+import com.jscode.board.exception.code.ErrorCode;
 
 public class NotFoundBoardException extends BusinessException {
 
