@@ -1,4 +1,4 @@
-package com.jscode.board.dto.request;
+package com.jscode.board.dto.board;
 
 import com.jscode.board.domain.Board;
 import io.swagger.annotations.ApiModel;
