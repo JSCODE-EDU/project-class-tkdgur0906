@@ -1,4 +1,4 @@
-package com.jscode.board.exception.Member;
+package com.jscode.board.exception.member;
 
 import com.jscode.board.exception.code.ErrorCode;
 import com.jscode.board.exception.common.BusinessException;
