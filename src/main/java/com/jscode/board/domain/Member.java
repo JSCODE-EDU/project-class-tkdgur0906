@@ -1,8 +1,7 @@
 package com.jscode.board.domain;
 
-import com.jscode.board.dto.request.MemberFormRequest;
+import com.jscode.board.dto.member.MemberFormRequest;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

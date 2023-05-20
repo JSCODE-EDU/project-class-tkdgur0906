@@ -1,6 +1,6 @@
 package com.jscode.board.controller;
 
-import com.jscode.board.dto.request.MemberFormRequest;
+import com.jscode.board.dto.member.MemberFormRequest;
 import com.jscode.board.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

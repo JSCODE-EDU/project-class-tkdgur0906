@@ -1,4 +1,4 @@
-package com.jscode.board.dto.request;
+package com.jscode.board.dto.member;
 
 import com.jscode.board.domain.Member;
 import lombok.AccessLevel;
@@ -6,10 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Column;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

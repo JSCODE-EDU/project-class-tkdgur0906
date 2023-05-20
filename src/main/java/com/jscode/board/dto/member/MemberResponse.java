@@ -1,4 +1,4 @@
-package com.jscode.board.dto.response;
+package com.jscode.board.dto.member;
 
 import lombok.Getter;
 
