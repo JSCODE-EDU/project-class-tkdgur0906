@@ -20,7 +20,7 @@ public class MemberService {
 
     public Long join(MemberFormRequest request){
         if(isEmailDuplicate(request.getEmail())){
-            throw new DuplicateEmailException(ErrorCode.DUPLICATE_EMAIL_EXCEPTION);
+            throw new DuplicateEmailException();
         }
         Member savedMember = memberRepository.save(MemberFormRequest.toEntity(request));
         return savedMember.getId();

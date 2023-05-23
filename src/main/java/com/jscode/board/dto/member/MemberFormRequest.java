@@ -1,11 +1,13 @@
 package com.jscode.board.dto.member;
 
+import com.jscode.board.domain.Authority;
 import com.jscode.board.domain.Member;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Getter
@@ -17,6 +19,9 @@ public class MemberFormRequest {
     @Pattern(regexp = "^[^\\s]+$", message = "잘못된 비밀번호 형식입니다.")
     @Length(min = 8, max = 15, message = "비밀번호 자리는 8이상 15이하로 입력해주세요")
     private String password;
+
+    @NotNull
+    private Authority authority;
 
     public static Member toEntity(MemberFormRequest request) {
         return Member.createMember(request);

@@ -20,10 +20,14 @@ public class Member extends BaseEntity {
     private String email;
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    private Authority authority;
+
     public static Member createMember(MemberFormRequest request){
         Member member = new Member();
         member.email = request.getEmail();
         member.password = request.getPassword();
+        member.authority = request.getAuthority();
         return member;
     }
 }
