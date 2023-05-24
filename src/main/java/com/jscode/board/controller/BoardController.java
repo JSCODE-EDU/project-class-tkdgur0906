@@ -1,7 +1,7 @@
 package com.jscode.board.controller;
 
-import com.jscode.board.dto.board.BoardRequest;
-import com.jscode.board.dto.board.BoardResponse;
+import com.jscode.board.dto.request.BoardRequest;
+import com.jscode.board.dto.response.BoardResponse;
 import com.jscode.board.exception.response.ExceptionResponse;
 import com.jscode.board.exception.response.FieldExceptionResponse;
 import com.jscode.board.service.BoardService;

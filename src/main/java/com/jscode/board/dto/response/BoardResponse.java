@@ -1,6 +1,8 @@
-package com.jscode.board.dto.board;
+package com.jscode.board.dto.response;
 
+import com.jscode.board.domain.BaseEntity;
 import com.jscode.board.domain.Board;
+import com.jscode.board.dto.request.BoardRequest;
 import io.swagger.annotations.ApiModel;
 import lombok.*;
 

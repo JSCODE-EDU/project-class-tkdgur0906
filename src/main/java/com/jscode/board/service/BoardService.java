@@ -1,8 +1,8 @@
 package com.jscode.board.service;
 
 import com.jscode.board.domain.Board;
-import com.jscode.board.dto.board.BoardRequest;
-import com.jscode.board.dto.board.BoardResponse;
+import com.jscode.board.dto.request.BoardRequest;
+import com.jscode.board.dto.response.BoardResponse;
 import com.jscode.board.exception.board.NotFoundBoardException;
 import com.jscode.board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
