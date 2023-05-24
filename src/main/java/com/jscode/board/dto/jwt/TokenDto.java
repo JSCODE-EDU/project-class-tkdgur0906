@@ -13,11 +13,11 @@ public class TokenDto {
 
     private String grantType;
     private String accessToken;
-    private Date accessTokenExpiresIn;
+    private long accessTokenExpiresIn;
     private String refreshToken;
 
     @Builder
-    public TokenDto(String grantType, String accessToken, Date accessTokenExpiresIn, String refreshToken) {
+    public TokenDto(String grantType, String accessToken, long accessTokenExpiresIn, String refreshToken) {
         this.grantType = grantType;
         this.accessToken = accessToken;
         this.accessTokenExpiresIn = accessTokenExpiresIn;
