@@ -2,6 +2,7 @@ package com.jscode.board.domain;
 
 import com.jscode.board.dto.member.MemberFormRequest;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,10 +21,13 @@ public class Member extends BaseEntity {
     private String email;
     private String password;
 
-    public static Member createMember(MemberFormRequest request){
-        Member member = new Member();
-        member.email = request.getEmail();
-        member.password = request.getPassword();
-        return member;
+    @Enumerated(EnumType.STRING)
+    private Authority authority;
+
+    @Builder
+    public Member(String email, String password, Authority authority) {
+        this.email = email;
+        this.password = password;
+        this.authority = authority;
     }
 }
