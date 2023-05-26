@@ -17,7 +17,7 @@ public class MemberResponse {
     private String email;
     private LocalDateTime createdDate;
 
-    public MemberResponse from(Member member){
+    public static MemberResponse from(Member member){
         return new MemberResponse(member.getId(), member.getEmail(),member.getCreatedDate());
     }
 
