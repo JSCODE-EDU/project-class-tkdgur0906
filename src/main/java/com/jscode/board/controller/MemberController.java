@@ -19,7 +19,6 @@ public class MemberController {
 
     @GetMapping("/info")
     public ResponseEntity<MemberResponse> Info(@RequestHeader("Authorization") String token) {
-        System.out.println("token = " + token);
         MemberResponse response = memberService.findMemberInfo(token.substring(7));
         return ResponseEntity.ok(response);
     }
