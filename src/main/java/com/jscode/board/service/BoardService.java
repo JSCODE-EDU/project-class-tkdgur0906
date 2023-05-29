@@ -4,6 +4,7 @@ import com.jscode.board.domain.Board;
 import com.jscode.board.domain.Member;
 import com.jscode.board.dto.board.BoardRequest;
 import com.jscode.board.dto.board.BoardResponse;
+import com.jscode.board.exception.board.NoAuthorityMemberException;
 import com.jscode.board.exception.board.NotFoundBoardException;
 import com.jscode.board.jwt.TokenProvider;
 import com.jscode.board.repository.BoardRepository;
@@ -68,7 +69,11 @@ public class BoardService {
      * 게시글 내용 변경
      */
     public BoardResponse updateBoard(Long id, BoardRequest request) {
+        Long currentMemberId = SecurityUtil.getCurrentMemberId();
         Board board = boardRepository.findById(id).orElseThrow(NotFoundBoardException::new);
+        if(currentMemberId != board.getMember().getId()){
+            throw new NoAuthorityMemberException();
+        }
         board.updateTitle(request.getTitle());
         board.updateContent(request.getContent());
         return BoardResponse.from(board);

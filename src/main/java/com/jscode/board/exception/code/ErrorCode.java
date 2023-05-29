@@ -16,6 +16,7 @@ public enum ErrorCode {
 
     //member
     NOT_FOUND_MEMBER_EXCEPTION(404, "사용자가 존재하지 않습니다.", NOT_FOUND),
+    NO_AUTHORITY_MEMBER_EXCEPTION(403,"해당 서비스의 권한이 없는 유저입니다.", FORBIDDEN),
 
     //jwt
     NO_AUTHORITY_INFO_EXCEPTION(403, "권한 정보가 없는 토큰입니다.", FORBIDDEN),

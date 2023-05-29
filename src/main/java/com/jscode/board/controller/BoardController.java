@@ -65,7 +65,7 @@ public class BoardController {
             @ApiResponse(code = 404, message = "게시글이 존재하지 않습니다.", response = FieldExceptionResponse.class)
     })
     public ResponseEntity<BoardResponse> boardDetails(@ApiParam(value = "게시글 id 명", example = "13")
-                                                          @PathVariable(value = "boardId") Long id){
+                                                          @PathVariable Long id){
         BoardResponse response = boardService.findBoardById(id);
         return ResponseEntity.ok(response);
     }
@@ -77,7 +77,7 @@ public class BoardController {
             @ApiResponse(code = 400, message = "유효하지 않은 입력입니다.", response = FieldExceptionResponse.class)
     })
     public ResponseEntity<BoardResponse> boardModify(@ApiParam(value = "게시글 id 명", example = "13")
-                                                         @PathVariable(value = "boardId") Long id,
+                                                         @PathVariable(value = "id") Long id,
                                                      @Valid @RequestBody BoardRequest boardRequest){
         BoardResponse response = boardService.updateBoard(id, boardRequest);
         return ResponseEntity.ok(response);
