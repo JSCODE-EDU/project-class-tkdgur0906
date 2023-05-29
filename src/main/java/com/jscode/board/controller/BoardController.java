@@ -33,7 +33,7 @@ public class BoardController {
             @ApiResponse(code = 400, message = "유효하지 않은 입력입니다.", response = ExceptionResponse.class)
     })
     public ResponseEntity<BoardResponse> boardAdd(@ApiParam(value = "요청 dto")
-                                                      @Valid @RequestBody BoardRequest boardRequest){
+                                                  @Valid @RequestBody BoardRequest boardRequest){
         BoardResponse response = boardService.saveBoard(boardRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }

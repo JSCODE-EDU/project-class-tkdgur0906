@@ -1,13 +1,18 @@
 package com.jscode.board.service;
 
 import com.jscode.board.domain.Board;
+import com.jscode.board.domain.Member;
 import com.jscode.board.dto.board.BoardRequest;
 import com.jscode.board.dto.board.BoardResponse;
 import com.jscode.board.exception.board.NotFoundBoardException;
+import com.jscode.board.jwt.TokenProvider;
 import com.jscode.board.repository.BoardRepository;
+import com.jscode.board.repository.MemberRepository;
+import com.jscode.board.util.SecurityUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,13 +23,15 @@ import java.util.stream.Collectors;
 public class BoardService {
 
     private final BoardRepository boardRepository;
+    private final MemberRepository memberRepository;
 
     /**
      * 게시글 생성
      */
     public BoardResponse saveBoard(BoardRequest request) {
-        Board savedBoard = boardRepository.save(BoardRequest.toEntity(request));
-        return BoardResponse.from(savedBoard);
+        Member member = memberRepository.getOne(SecurityUtil.getCurrentMemberId());
+        Board newBoard = new Board(request.getTitle(), request.getContent(), member);
+        return BoardResponse.from(boardRepository.save(newBoard));
     }
 
     /**
