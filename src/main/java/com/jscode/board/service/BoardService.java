@@ -53,7 +53,7 @@ public class BoardService {
      */
     public BoardAndCommentsDto findBoardById(Long id) {
         Board board = boardRepository.findById(id).orElseThrow(NotFoundBoardException::new);
-        List<Comment> comments = commentRepository.findAllByBoard(board);
+        List<Comment> comments = commentRepository.findAllByBoardAndMember(board);
         BoardAndCommentsDto boardAndCommentsDto = BoardAndCommentsDto.from(board, comments);
         return boardAndCommentsDto;
     }

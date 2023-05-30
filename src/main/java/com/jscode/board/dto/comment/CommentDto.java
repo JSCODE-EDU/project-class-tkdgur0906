@@ -14,17 +14,20 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class CommentDto {
 
+    private String email;
     private String content;
     private LocalDateTime createdDate;
 
     @Builder
-    public CommentDto(String content, LocalDateTime createdDate) {
+    public CommentDto(String email, String content, LocalDateTime createdDate) {
+        this.email = email;
         this.content = content;
         this.createdDate = createdDate;
     }
 
     public static CommentDto from(Comment comment){
         return CommentDto.builder()
+                .email(comment.getMember().getEmail())
                 .content(comment.getContent())
                 .createdDate(comment.getCreatedDate())
                 .build();
