@@ -1,5 +1,6 @@
 package com.jscode.board.controller;
 
+import com.jscode.board.dto.board.BoardAndCommentsDto;
 import com.jscode.board.dto.board.BoardRequest;
 import com.jscode.board.dto.board.BoardResponse;
 import com.jscode.board.exception.response.ExceptionResponse;
@@ -64,9 +65,9 @@ public class BoardController {
             @ApiResponse(code = 200, message = "조회 성공", response = BoardResponse.class),
             @ApiResponse(code = 404, message = "게시글이 존재하지 않습니다.", response = FieldExceptionResponse.class)
     })
-    public ResponseEntity<BoardResponse> boardDetails(@ApiParam(value = "게시글 id 명", example = "13")
+    public ResponseEntity<BoardAndCommentsDto> boardDetails(@ApiParam(value = "게시글 id 명", example = "13")
                                                           @PathVariable Long id){
-        BoardResponse response = boardService.findBoardById(id);
+        BoardAndCommentsDto response = boardService.findBoardById(id);
         return ResponseEntity.ok(response);
     }
 

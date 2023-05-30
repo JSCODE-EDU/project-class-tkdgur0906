@@ -1,19 +1,20 @@
 package com.jscode.board.service;
 
 import com.jscode.board.domain.Board;
+import com.jscode.board.domain.Comment;
 import com.jscode.board.domain.Member;
+import com.jscode.board.dto.board.BoardAndCommentsDto;
 import com.jscode.board.dto.board.BoardRequest;
 import com.jscode.board.dto.board.BoardResponse;
 import com.jscode.board.exception.board.NoAuthorityMemberException;
 import com.jscode.board.exception.board.NotFoundBoardException;
-import com.jscode.board.jwt.TokenProvider;
 import com.jscode.board.repository.BoardRepository;
+import com.jscode.board.repository.CommentRepository;
 import com.jscode.board.repository.MemberRepository;
 import com.jscode.board.util.SecurityUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,6 +25,7 @@ import java.util.stream.Collectors;
 public class BoardService {
 
     private final BoardRepository boardRepository;
+    private final CommentRepository commentRepository;
     private final MemberRepository memberRepository;
 
     /**
@@ -49,9 +51,11 @@ public class BoardService {
     /**
      * id로 게시글 조회
      */
-    public BoardResponse findBoardById(Long id) {
+    public BoardAndCommentsDto findBoardById(Long id) {
         Board board = boardRepository.findById(id).orElseThrow(NotFoundBoardException::new);
-        return BoardResponse.from(board);
+        List<Comment> comments = commentRepository.findAllByBoard(board);
+        BoardAndCommentsDto boardAndCommentsDto = BoardAndCommentsDto.from(board, comments);
+        return boardAndCommentsDto;
     }
 
     /**
