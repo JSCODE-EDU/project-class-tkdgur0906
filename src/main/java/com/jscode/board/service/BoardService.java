@@ -83,7 +83,11 @@ public class BoardService {
      * 게시글 삭제
      */
     public Long deleteBoard(Long id){
+        Long currentMemberId = SecurityUtil.getCurrentMemberId();
         Board board = boardRepository.findById(id).orElseThrow(NotFoundBoardException::new);
+        if(currentMemberId != board.getMember().getId()){
+            throw new NoAuthorityMemberException();
+        }
         boardRepository.delete(board);
         return board.getId();
     }
