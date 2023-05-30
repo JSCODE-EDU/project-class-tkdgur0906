@@ -1,6 +1,8 @@
 package com.jscode.board.dto.comment;
 
+import com.jscode.board.domain.Board;
 import com.jscode.board.domain.Comment;
+import com.jscode.board.domain.Member;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,10 +24,17 @@ public class CommentDto {
     }
 
     public static CommentDto from(Comment comment){
-        CommentDto commentDto = new CommentDto();
-        commentDto.content = comment.getContent();
-        commentDto.createdDate = comment.getCreatedDate();
-        return commentDto;
+        return CommentDto.builder()
+                .content(comment.getContent())
+                .createdDate(comment.getCreatedDate())
+                .build();
+    }
 
+    public static Comment toEntity(CommentDto commentDto, Board board, Member member){
+        return Comment.builder()
+                .content(commentDto.getContent())
+                .board(board)
+                .member(member)
+                .build();
     }
 }
