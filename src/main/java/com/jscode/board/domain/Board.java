@@ -16,6 +16,9 @@ public class Board extends BaseEntity {
     private String title;
     @Lob
     private String content;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     @Builder
     public Board(String title, String content){
