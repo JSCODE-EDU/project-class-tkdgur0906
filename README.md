@@ -1,5 +1,5 @@
 # 👪Board Server👪
-> 온라인 커뮤니티에서 다양한 사람들과 소통해보세요!
+> JSCODE 프로젝트 클래스
 
 
 ## 개발 환경
@@ -8,20 +8,13 @@
   + Intellij
   + GitHub
 
-## 사용 기술
-
-<img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white"> <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=for-the-badge&logo=Spring Security&logoColor=white">
-
-<img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
 
 
 ## 📖 소개
 
-언제 어디서나 다른 유저들과 만날 수 있습니다.
-
-자신의 생각, 감정을 자유롭게 나눠보세요.
-
-처음 만나는 사람들과도 친구가 될 수 있습니다!
+JSCODE에서 진행된 스터디에서 진행한 게시판을 만드는 프로젝트로
+2023.05.09 ~ 2023.06.01동안 수행하였다.
+총 3명의 팀원들과 각자의 코드를 피드백해주며 진행하였다.
 
 
 ## 주요 기능
