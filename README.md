@@ -38,6 +38,7 @@
   + 마이페이지
 
 ## Project Structure
+ ```
 src
 │── config
 ├── controller
@@ -49,6 +50,6 @@ src
  repository
 ├── service
 └── util
-
+ ```
   
 
