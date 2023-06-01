@@ -18,8 +18,8 @@ public class MemberController {
     private final MemberService memberService;
 
     @GetMapping("/info")
-    public ResponseEntity<MemberResponse> Info(@RequestHeader("Authorization") String token) {
-        MemberResponse response = memberService.findMemberInfo(token.substring(7));
+    public ResponseEntity<MemberResponse> Info() {
+        MemberResponse response = memberService.findMemberInfo();
         return ResponseEntity.ok(response);
     }
 }

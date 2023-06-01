@@ -21,9 +21,10 @@ public class Board extends BaseEntity {
     private Member member;
 
     @Builder
-    public Board(String title, String content){
+    public Board(String title, String content, Member member){
         this.title = title;
         this.content = content;
+        this.member = member;
     }
 
     public void updateTitle(String title){

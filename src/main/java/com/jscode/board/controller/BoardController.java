@@ -1,5 +1,6 @@
 package com.jscode.board.controller;
 
+import com.jscode.board.dto.board.BoardAndCommentsDto;
 import com.jscode.board.dto.board.BoardRequest;
 import com.jscode.board.dto.board.BoardResponse;
 import com.jscode.board.exception.response.ExceptionResponse;
@@ -33,7 +34,7 @@ public class BoardController {
             @ApiResponse(code = 400, message = "유효하지 않은 입력입니다.", response = ExceptionResponse.class)
     })
     public ResponseEntity<BoardResponse> boardAdd(@ApiParam(value = "요청 dto")
-                                                      @Valid @RequestBody BoardRequest boardRequest){
+                                                  @Valid @RequestBody BoardRequest boardRequest){
         BoardResponse response = boardService.saveBoard(boardRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
@@ -64,9 +65,9 @@ public class BoardController {
             @ApiResponse(code = 200, message = "조회 성공", response = BoardResponse.class),
             @ApiResponse(code = 404, message = "게시글이 존재하지 않습니다.", response = FieldExceptionResponse.class)
     })
-    public ResponseEntity<BoardResponse> boardDetails(@ApiParam(value = "게시글 id 명", example = "13")
-                                                          @PathVariable(value = "boardId") Long id){
-        BoardResponse response = boardService.findBoardById(id);
+    public ResponseEntity<BoardAndCommentsDto> boardDetails(@ApiParam(value = "게시글 id 명", example = "13")
+                                                          @PathVariable Long id){
+        BoardAndCommentsDto response = boardService.findBoardById(id);
         return ResponseEntity.ok(response);
     }
 
@@ -77,7 +78,7 @@ public class BoardController {
             @ApiResponse(code = 400, message = "유효하지 않은 입력입니다.", response = FieldExceptionResponse.class)
     })
     public ResponseEntity<BoardResponse> boardModify(@ApiParam(value = "게시글 id 명", example = "13")
-                                                         @PathVariable(value = "boardId") Long id,
+                                                         @PathVariable Long id,
                                                      @Valid @RequestBody BoardRequest boardRequest){
         BoardResponse response = boardService.updateBoard(id, boardRequest);
         return ResponseEntity.ok(response);
@@ -90,7 +91,7 @@ public class BoardController {
             @ApiResponse(code = 404, message = "게시글이 존재하지 않습니다.", response = FieldExceptionResponse.class)
     })
     public ResponseEntity<Long> boardRemove(@ApiParam(value = "게시글 id 명", example = "13")
-                                                @PathVariable(value = "boardId") Long id){
+                                                @PathVariable Long id){
         Long deletedId = boardService.deleteBoard(id);
         return ResponseEntity.ok(deletedId);
     }
