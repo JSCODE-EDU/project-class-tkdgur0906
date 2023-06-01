@@ -37,6 +37,12 @@
 사용자
   + 마이페이지
 
+## Stack
+  + Language : java
+  + Library & Framework : Spring Boot
+  + Database : AWS RDS(MySQL)
+  + ORM : JPA
+  + Deploy : AWS Elastic BeanStalk(EB)
 ## Project Structure
  ```
 src
